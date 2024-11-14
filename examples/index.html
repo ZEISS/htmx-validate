@@ -1,22 +1,42 @@
 <!doctype html>
-<html>
-  <head>
-    <title>example-element examples</title>
-    <link href="https://unpkg.com/fiber-htmx@1.3.32/dist/out.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container py-4">
-      <example-element></example-element>
-    </div>
-    <script>
-      const script = document.createElement('script')
-      if (window.location.hostname.endsWith('github.io') || window.location.hostname.endsWith('github.com')) {
-        script.src = "https://unpkg.com/example-element@latest/dist/index.js"
-      } else {
-        script.src = "../dist/index.js"
-      }
-      script.type = 'module'
-      document.body.appendChild(script)
-    </script>
-  </body>
+<html data-theme="light">
+
+<head>
+  <title>example-element examples</title>
+  <link href="https://unpkg.com/fiber-htmx@1.3.32/dist/out.css" rel="stylesheet">
+</head>
+
+<body>
+  <style>
+    input:invalid+.text-error {
+      border-color: red;
+    }
+  </style>
+  <div class="container py-4">
+    <form id="example-form" class="form" novalidate>
+      <div class="form-group">
+        <label for="example-input">
+          <input id="example-input" name="example-input" class="input input-bordered" required>
+        </label>
+        <div class="text-error" htmx-validate-for="example-input" is="htmx-validate" class="invalid-feedback">Example
+          Input is
+          required</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <example-element></example-element>
+  </div>
+  <script>
+    const script = document.createElement('script')
+    if (window.location.hostname.endsWith('github.io') || window.location.hostname.endsWith('github.com')) {
+      script.src = "https://unpkg.com/htmx-validate@latest/dist/index.js"
+    } else {
+      script.src = "../dist/index.js"
+    }
+    script.type = 'module'
+    document.body.appendChild(script)
+  </script>
+</body>
+
 </html>

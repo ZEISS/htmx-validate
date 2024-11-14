@@ -1,12 +1,12 @@
 import {fixture, html} from '@open-wc/testing-helpers'
-import {ExampleElement} from './index'
+import {HTMXValidateElement} from './index'
 import {describe, it, expect, beforeEach} from 'vitest'
 
-describe('example-element', () => {
-  let element: ExampleElement
+describe('htmx-validate', () => {
+  let element: HTMXValidateElement
 
   beforeEach(async () => {
-    element = await fixture(html`<example-element></example-element>`)
+    element = await fixture(html`<htmx-validate></htmx-validate>`)
   })
 
   it('should render the element', () => {
